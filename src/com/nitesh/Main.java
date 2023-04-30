@@ -1,27 +1,25 @@
 package com.nitesh;
 
-import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         try {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Principal Amount: ");
-            final int principal = scanner.nextInt();
+            System.out.print("Enter Number: ");
+            final int number = scanner.nextInt();
 
-            System.out.print("Interest rate: ");
-            final float interestRate = scanner.nextFloat();
-            final float monthlyInterestRate = interestRate / 12 / 100;
-
-            System.out.print("Years: ");
-            final float noOfPayments = scanner.nextFloat() * 12;
-
-            double result = principal * (monthlyInterestRate * Math.pow(monthlyInterestRate + 1, noOfPayments))
-                    / (Math.pow(monthlyInterestRate + 1, noOfPayments) - 1);
-            System.out.println("Monthly payment: " + NumberFormat.getCurrencyInstance().format(result));
+            if (number % 3 == 0 && number % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (number % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (number % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(number);
+            }
         } catch (Exception e) {
-            System.out.println("Exception found: "+ e);
+            System.out.println("Exception found: " + e);
             throw e;
         }
     }
